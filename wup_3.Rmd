@@ -18,9 +18,18 @@ davisdata <- read.csv(file="UCDavis.csv")
 ## you choose to sit in??
 
 
-$H_0$: There is no difference between the average number of drinks imbibed between people conditioned on the row they sit in.
+##methods
 
-$H_A$: The average number drinks is different between at least two rows. 
+Seat is a categorical variable.
+alcohol is a numerical variable.
+For this problem we explain alcohol consumption based on the location people sit.
+Therefore the helper file i use is numerical categorical. 
+
+$H_0$: There is no difference between the average number of drinks based on the location of where people sit.
+
+$H_A$: There is a difference in the average number drinks consumed by at least two rows.  
+
+
 
 ## Now with ggplot - first select the basic data
 
@@ -29,13 +38,13 @@ $H_A$: The average number drinks is different between at least two rows.
 basicCN <- ggplot(davisdata,aes(x=alcohol,y=Seat))
 ```
 
-```
+
+
+Based on the data the individuals that sit in the back consume more alcohol than thoes who sit in the front or the middle. 
+
+
 ## Now add in boxplot
 
-
-```{r}
-basicCN + geom_boxplot()
-```
   
   
 ### get fancy  
