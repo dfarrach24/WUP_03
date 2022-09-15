@@ -51,10 +51,11 @@ basicCN + geom_boxplot(notch=TRUE,outlier.color = "red") + stat_boxplot(geom ='e
 ```
 
 
-Based on the data the individuals that sit in the back consume more alcohol than thoes who sit in the front or the middle. 
+Based on the data the individuals that sit in the back consume more alcohol than those who sit in the front or the middle. 
 
 
 ## Numerical Summarys 
+
 
 ```{r}
 favstats(alcohol~Seat,data=ucdavis1)
@@ -65,6 +66,19 @@ Based on the numerical summary on average the individuals in the back have about
 
 ## Inferential Tests
 
+```{r}
+model1 <- aov(alcohol~Seat,data=davisdata)
+summary.aov(model1)
+```
+
+Based on the ANOVA the P value is .000116 and less than .05. which means we reject the null hypothesis. 
+
+```{r}
+plot(TukeyHSD(model1))
+```
+
+
+
 ## Conclusions
 
-
+The evidence shows that there is a difference in alcohol consumption, individuals that drink more sit in the back.Data in the anova conclude that there is reason to reject the null hypothesis. The p-value is 0.00116 being less than the p-value of 0.05. There is no difference between the front and middle row consumption. 
